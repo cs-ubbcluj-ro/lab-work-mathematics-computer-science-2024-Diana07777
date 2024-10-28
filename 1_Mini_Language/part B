@@ -1,0 +1,34 @@
+Print all prime numbers less than k)
+program PrintPrimes;
+var
+  i, j, k: Integer;
+  isPrime: Boolean;
+begin
+  Write('Enter a number k: ');
+  ReadLn(k);
+
+  WriteLn('Prime numbers less than ', k, ':');
+  
+  for i := 2 to k - 1 do
+  begin
+    isPrime := True;
+
+    // Check if i is prime
+    for j := 2 to Trunc(Sqrt(i)) do
+    begin
+      if (i mod j = 0) then
+      begin
+        isPrime := False;
+        Break;
+      end;
+    end;
+
+    if isPrime then
+      WriteLn(i);
+  end;
+end.
+Explications:
+1.Input: The program prompts the user to enter a number k
+2.Loop: It iterates from 2 to k-1
+3.Prime Check: For each number i, it checks if it is prime by testing divisibility with numbers from 2 to the square root of i
+4.Output: If i is prime, it prints the number.
